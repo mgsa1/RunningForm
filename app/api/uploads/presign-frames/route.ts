@@ -35,6 +35,7 @@ export async function POST(request: NextRequest) {
     .select('id', { count: 'exact', head: true })
     .eq('user_id', user.id)
     .gte('queued_at', startOfDay.toISOString())
+    .not('frame_paths', 'eq', '{}')
 
   if ((count ?? 0) >= 3) {
     return NextResponse.json(

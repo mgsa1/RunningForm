@@ -182,8 +182,8 @@ export default async function HistoryPage() {
                       </span>
                     )}
 
-                    {/* Delete button for failed sessions */}
-                    {isFailed && (
+                    {/* Delete button for non-completed sessions */}
+                    {!isComplete && (
                       <div className="ml-auto">
                         <DeleteSessionButton sessionId={session.id} />
                       </div>
